@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Connexion à MySQL -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/daara</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">Thior552005</property>
+
+        <!-- Dialecte SQL utilisé par Hibernate -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Affichage et formatage du SQL généré -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Gestion automatique du schéma : update | create | validate | none -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Classes annotées à enregistrer -->
+        <mapping class="sn.thiordev221.daara.model.models.Maitre"/>
+        <mapping class="sn.thiordev221.daara.model.models.Classe"/>
+        <mapping class="sn.thiordev221.daara.model.models.Talibe"/>
+        <mapping class="sn.thiordev221.daara.model.models.Progression"/>
+
+    </session-factory>
+
+</hibernate-configuration>
