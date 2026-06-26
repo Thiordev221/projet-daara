@@ -4,6 +4,7 @@ package sn.thiordev221.daara.model.dao;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import sn.thiordev221.daara.model.models.Progression;
+import sn.thiordev221.daara.model.models.Talibe;
 import sn.thiordev221.exception.ProgressionIntrouvableException;
 import sn.thiordev221.exception.ProgressionInvalideException;
 import sn.thiordev221.util.HibernateUtil;
@@ -82,6 +83,14 @@ public class ProgressionDao implements Dao<Progression, Long> {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("from Progression p where p.talibe.matricule = :m order by p.dateEvaluation desc", Progression.class)
                     .setParameter("m", matriculeTalibe)
+                    .list();
+        }
+    }
+
+    public List<Progression> rechercherParTalibe(Talibe talibe){
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("from Progression p where p.talibe = :m order by p.dateEvaluation desc", Progression.class)
+                    .setParameter("m", talibe)
                     .list();
         }
     }

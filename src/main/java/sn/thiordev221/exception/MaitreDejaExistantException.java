@@ -1,7 +1,7 @@
 package sn.thiordev221.exception;
 
 public class MaitreDejaExistantException extends DaaraException{
-    public MaitreDejaExistantException(String message){
-        super(message);
+    public MaitreDejaExistantException(String matricule){
+        super("Maitre avec matricule " + matricule + " existant");
     }
 }
